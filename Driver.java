@@ -35,8 +35,8 @@ public class Driver
          Kitchen.addExit("Guest Room");
 
          Library.addExit("Holodeck");
-         Library.addExit("Study");
          Library.addExit("Trophy Room");
+         Library.addExit("Study");
 
          Holodeck.addExit("Library");
 
@@ -84,6 +84,7 @@ public class Driver
             }
             else if (!(exits.contains(input))) {
                 System.out.println("Invalid exit.");
+                System.out.println("Please choose an exit");
                 input = scnr.nextLine();
             }
             else {
