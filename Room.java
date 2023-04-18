@@ -31,7 +31,7 @@ public class Room
      * @return returns all of the names of the rooms on new lines
      */
     public String listExits() {
-        String exitList;
+        String exitList = "";
         for (String exit: exits) {
             exitList += exit + " \n";
         }
@@ -42,10 +42,14 @@ public class Room
      * Generates a string representation of the room using the name and description and lists all of the exits.
      */
     public String toString() {
-        String final = name + ": " + description; 
-        return final;
+        String print;
+        print = name + ": " + description; 
+        return print;
     }
     public String getName() {
         return name;
+    }
+    public ArrayList<String> getList() {
+        return exits;
     }
 }

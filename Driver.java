@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.*;
 
 public class Driver
 {
@@ -24,26 +25,26 @@ public class Driver
          Room Trophy = new Room("Trophy Room", "Spacious room with oak wood as far as the eye can see, shelves filled to the brim with trophies and obscure collections, it really makes you wonder who they belong to.");
          Room Bedroom = new Room("Bedroom", "A lavished bed adorns the center of this room, with long curtains, beautiful rugs, and gilded furniture acting as little details to truly make this a great bedroom.");
 
-         Study.addExit("Kitchen", Kitchen);
-         Study.addExit("Library", Library);
-         Study.addExit("Bedroom", Bedroom);
+         Study.addExit("Kitchen");
+         Study.addExit("Library");
+         Study.addExit("Bedroom");
 
-         Guest.addExit("Kitchen", Kitchen);
+         Guest.addExit("Kitchen");
 
-         Kitchen.addExit("Study", Study);
-         Kitchen.addExit("Guest Room", Guest);
+         Kitchen.addExit("Study");
+         Kitchen.addExit("Guest Room");
 
-         Library.addExit("Study", Study);
-         Library.addExit("Holodeck", Holodeck);
-         Library.addExit("Trophy Room", Trophy);
+         Library.addExit("Study");
+         Library.addExit("Holodeck");
+         Library.addExit("Trophy Room");
 
-         Holodeck.addExit("Library", Library);
+         Holodeck.addExit("Library");
 
-         Trophy.addExit("Bedroom", Bedroom);
-         Trophy.addExit("Library", Library);
+         Trophy.addExit("Bedroom");
+         Trophy.addExit("Library");
 
-         Bedroom.addExit("Study", Study);
-         Bedroom.addExit("Trophy Room", Trophy);
+         Bedroom.addExit("Study");
+         Bedroom.addExit("Trophy Room");
 
          map.addRoom(Study);
          map.addRoom(Kitchen);
@@ -63,16 +64,17 @@ public class Driver
          Scanner scnr = new Scanner(System.in);
          String input = "Study";
          Room currentRoom = Study;
-         while (!(input.equalsIgnorCase("exit"))) {
-            System.out.println(currentRoom.toString);
-            System.out.println("Exits:")
-            System.out.println(currentroom.listExits());
+         while (!(input.equalsIgnoreCase("exit"))) {
+            System.out.println(currentRoom.toString());
+            System.out.println("Exits:");
+            System.out.println(currentRoom.listExits());
             System.out.println("Please choose an exit");
             input = scnr.nextLine();
+            ArrayList<String> exits = currentRoom.getList();
             if (input.equalsIgnoreCase("exit")) {
                 break;
             }
-            else if (!exits.contain(input)) {
+            else if (!(exits.contains(input))) {
                 System.out.println("Invalid exit");
                 input = scnr.nextLine();
             }
