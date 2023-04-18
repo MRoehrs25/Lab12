@@ -79,16 +79,22 @@ public class Driver
             
             
             ArrayList<String> exits = currentRoom.getList();
-            if (input.equalsIgnoreCase("exit")) {
-                break;
-            }
-            else if (!(exits.contains(input))) {
-                System.out.println("Invalid exit.");
-                System.out.println("Please choose an exit");
-                input = scnr.nextLine();
-            }
-            else {
-                currentRoom = map.getRoom(input);
+            boolean bool = true;
+            while (bool) {
+                if (input.equalsIgnoreCase("exit")) {
+                    bool = false;
+                    break;
+                }
+                else if (!(exits.contains(input))) {
+                    System.out.println("Invalid exit.");
+                    System.out.println("Please choose an exit");
+                    input = scnr.nextLine();
+                }
+                else {
+                    currentRoom = map.getRoom(input);
+                    bool = false;
+                    break;
+                }
             }
          }
         
