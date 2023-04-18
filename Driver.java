@@ -69,7 +69,15 @@ public class Driver
             System.out.println("Exits:");
             System.out.println(currentRoom.listExits());
             System.out.println("Please choose an exit");
-            input = scnr.nextLine();
+            try {
+                input = scnr.nextLine();
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Invalid exit");
+                input = scnr.nextLine();
+            }
+            
+            
             ArrayList<String> exits = currentRoom.getList();
             if (input.equalsIgnoreCase("exit")) {
                 break;

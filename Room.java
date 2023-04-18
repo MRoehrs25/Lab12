@@ -14,6 +14,7 @@ public class Room
     public Room(String name, String description) {
         this.name = name;
         this.description = description;
+        exits = new ArrayList<String>();
         
     }
     /* Generate getters and setters for the naems and descriptions */
