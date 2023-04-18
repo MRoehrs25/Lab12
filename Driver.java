@@ -64,7 +64,7 @@ public class Driver
          Scanner scnr = new Scanner(System.in);
          String input = "Study";
          Room currentRoom = Study;
-         while (!(input.equalsIgnoreCase("exit"))) {
+         while (!(input.equalsIgnoreCase("exit"))) {//prints room info
             System.out.println(currentRoom.toString());
             System.out.println("Exits:");
             System.out.println(currentRoom.listExits());
@@ -80,7 +80,7 @@ public class Driver
             
             ArrayList<String> exits = currentRoom.getList();
             boolean bool = true;
-            while (bool) {
+            while (bool) {//validates input
                 if (input.equalsIgnoreCase("exit")) {
                     bool = false;
                     break;

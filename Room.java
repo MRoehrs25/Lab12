@@ -47,10 +47,10 @@ public class Room
         print = name + ": " + description; 
         return print;
     }
-    public String getName() {
+    public String getName() { //gets room name
         return name;
     }
-    public ArrayList<String> getList() {
+    public ArrayList<String> getList() {//gives list of exits
         return exits;
     }
 }
