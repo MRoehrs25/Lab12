@@ -66,10 +66,7 @@ public class Driver
          while (!(input.equalsIgnorCase("exit"))) {
             System.out.println(currentRoom.toString);
             System.out.println("Exits:")
-            ArrayList <String> exits = currentRoom.listExits();
-            for (String exit: exits) {
-                System.out.println(exit);
-            }
+            System.out.println(currentroom.listExits());
             System.out.println("Please choose an exit");
             input = scnr.nextLine();
             if (input.equalsIgnoreCase("exit")) {
