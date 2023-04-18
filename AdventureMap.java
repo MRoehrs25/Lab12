@@ -4,8 +4,7 @@ public class AdventureMap
 {
     HashMap<String, Room> map;
 
-    public AdventureMap()
-    {
+    public AdventureMap(){
         map = new HashMap<>();
     }
 
@@ -14,9 +13,8 @@ public class AdventureMap
      * The name associated in the room must be lowercase
      * @param room Room to be added to the AdventureMap
      */
-    public void addRoom(Room room)
-    {
-        
+    public void addRoom(Room room) {
+        map.put(room.getName(), room);
     }
 
     /**
@@ -24,8 +22,7 @@ public class AdventureMap
      * @param roomName the name of the room to be returned, room name must be valid
      * @return the Room object assocaited with the name, the name will be in lowercase
      */
-    public Room getRoom(String roomName)
-    {
-        
+    public Room getRoom(String roomName) {
+       return map.get(roomName);
     }
 }

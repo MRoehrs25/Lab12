@@ -15,6 +15,43 @@ public class Driver
          * Trophy Room: Spacious room with oak wood as far as the eye can see, shelves filled to the brim with trophies and obscure collections, it really makes you wonder who they belong to. :: Bedroom, Library
          * Bedroom: A lavished bed adorns the center of this room, with long curtains, beautiful rugs, and gilded furniture acting as little details to truly make this a great bedroom. :: Study, Trophy Room
          */
+         AdventureMap map = new AdventureMap();
+         Room Guest = new Room("Guest Room", "A room filled with numerous torture devices. Who said anything about welcome guests?" );
+         Room Library = new Room("Library", "Better version of the study. It has all of the different books that one may want. Make sure that you stay quiet or the mean librarian will slap you!");
+         Room Kitchen = new Room("Kitchen", "This amazing culinary art studio has it all: cheese cellar, wine racks, and a 16 stove burner. With its pizza oven, it makes for the perfect Italian getaway.");
+         Room Study = new Room("Study", "Do you love being disturbed while working? This room has it all. It is the central hub to the whole house. It has a giant wall of computers and amazing lighting, but doors that exit out into numerous different rooms.");
+         Room Holodeck = new Room("Holodeck", "A room that can disguise itself in a variety of ways. Experience a lush, humid rainforest, a speakeasy of the 1920’s, or the dungeons of Cooper Library.");
+         Room Trophy = new Room("Trophy Room", "Spacious room with oak wood as far as the eye can see, shelves filled to the brim with trophies and obscure collections, it really makes you wonder who they belong to.");
+         Room Bedroom = new Room("Bedroom", "A lavished bed adorns the center of this room, with long curtains, beautiful rugs, and gilded furniture acting as little details to truly make this a great bedroom.");
+
+         Study.addExit("Kitchen", Kitchen);
+         Study.addExit("Library", Library);
+         Study.addExit("Bedroom", Bedroom);
+
+         Guest.addExit("Kitchen", Kitchen);
+
+         Kitchen.addExit("Study", Study);
+         Kitchen.addExit("Guest Room", Guest);
+
+         Library.addExit("Study", Study);
+         Library.addExit("Holodeck", Holodeck);
+         Library.addExit("Trophy Room", Trophy);
+
+         Holodeck.addExit("Library", Library);
+
+         Trophy.addExit("Bedroom", Bedroom);
+         Trophy.addExit("Library", Library);
+
+         Bedroom.addExit("Study", Study);
+         Bedroom.addExit("Trophy Room", Trophy);
+
+         map.addRoom(Study);
+         map.addRoom(Kitchen);
+         map.addRoom(Trophy);
+         map.addRoom(Holodeck);
+         map.addRoom(Bedroom);
+         map.addRoom(Library);
+         map.addRoom(Guest);
         
 
         /*
@@ -23,6 +60,29 @@ public class Driver
          * If there is an invalid selection, then print out "Invalid exit."
          * After you are done selecting, print out "Please choose an exit" and get next exit
          */
+         Scanner scnr = new Scanner(System.in);
+         String input = "Study";
+         Room currentRoom = Study;
+         while (!(input.equalsIgnorCase("exit"))) {
+            System.out.println(currentRoom.toString);
+            System.out.println("Exits:")
+            ArrayList <String> exits = currentRoom.listExits();
+            for (String exit: exits) {
+                System.out.println(exit);
+            }
+            System.out.println("Please choose an exit");
+            input = scnr.nextLine();
+            if (input.equalsIgnoreCase("exit")) {
+                break;
+            }
+            else if (!exits.contain(input)) {
+                System.out.println("Invalid exit");
+                input = scnr.nextLine();
+            }
+            else {
+                currentRoom = map.getRoom(input);
+            }
+         }
         
     }
 
